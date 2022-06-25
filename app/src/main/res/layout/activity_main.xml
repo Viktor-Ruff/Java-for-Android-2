@@ -1,18 +1,353 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wood"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/edUserInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="end"
+        android:hint="@string/zero"
+        android:maxHeight="50sp"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
     <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="end"
+        android:minHeight="60dp"
+        android:textSize="55sp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/vLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="#000000" />
+
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:useDefaultMargins="true">
+
+        <Button
+            android:id="@+id/btPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyPlus"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyMinus"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btClean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyC"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyDelete"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyPercent"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btPi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyPi"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+
+        <Button
+            android:id="@+id/btRoot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyRoot"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btDegree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyDegree"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btKey1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/key1"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btKey2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/key2"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btKey3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/key3"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btDivide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyDivide"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btKey4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/key4"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btKey5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/key5"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btKey6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/key6"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+
+        <Button
+            android:id="@+id/btMultiply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyMultiply"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btKey7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/key7"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btKey8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/key8"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btKey9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/key9"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btPlusMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyPlusMinus"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btKey0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/key0"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btDot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyDot"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+        <Button
+            android:id="@+id/btEquals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill_horizontal"
+            android:backgroundTint="#52B65907"
+            android:backgroundTintMode="multiply"
+            android:text="@string/keyEquals"
+            android:textColor="#01AFFF"
+            android:textSize="28sp"
+            app:cornerRadius="100dp" />
+
+    </GridLayout>
+
+    <androidx.appcompat.widget.SwitchCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginLeft="20dp" />
+
+</LinearLayout>
+
+    <?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hello World!"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
