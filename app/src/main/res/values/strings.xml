@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="keyPercent">%</string>
+    <string name="keyMinus">━</string>
+    <string name="keyPlusMinus">±</string>
+    <string name="keyPlus">+</string>
+    <string name="keyDelete">⌫</string>
+    <string name="keyRoot">√</string>
+    <string name="keyDegree">x²</string>
+    <string name="keyPi">𝝅</string>
+    <string name="key1">❶</string>
+    <string name="key2">❷</string>
+    <string name="key3">❸</string>
+    <string name="keyMultiply">×</string>
+    <string name="key4">❹</string>
+    <string name="key5">❺</string>
+    <string name="key6">❻</string>
+    <string name="keyDivide">÷</string>
+    <string name="key7">❼</string>
+    <string name="key8">❽</string>
+    <string name="key9">❾</string>
+    <string name="keyDot">●</string>
+    <string name="key0">⓿</string>
+    <string name="keyC">𝗖</string>
+    <string name="keyEquals">=</string>
+    <string name="zero">0</string>
+</resources>
