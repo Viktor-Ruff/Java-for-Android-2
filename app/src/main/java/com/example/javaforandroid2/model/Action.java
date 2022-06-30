@@ -12,5 +12,5 @@ public enum Action {
     DELETE,
     CLEAN,
     PLUSMINUS,
-    EQUALS
+
 }

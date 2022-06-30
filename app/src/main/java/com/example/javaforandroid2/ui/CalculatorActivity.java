@@ -73,6 +73,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         operators.put(R.id.btRoot, Operator.ROOT);
         operators.put(R.id.btDegree, Operator.DEGREE);
         operators.put(R.id.btPercent, Operator.PERCENT);
+        operators.put(R.id.btEquals, Operator.EQUALS);
 
         View.OnClickListener operatorClickListener = new View.OnClickListener() {
             @Override
@@ -89,29 +90,34 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         findViewById(R.id.btRoot).setOnClickListener(operatorClickListener);
         findViewById(R.id.btDegree).setOnClickListener(operatorClickListener);
         findViewById(R.id.btPercent).setOnClickListener(operatorClickListener);
+        findViewById(R.id.btEquals).setOnClickListener(operatorClickListener);
 
 
-
-        Map<Integer, Action> action = new HashMap<>();
-        action.put(R.id.btDot, Action.DOT);
-        action.put(R.id.btDelete, Action.DELETE);
-        action.put(R.id.btClean, Action.CLEAN);
-        action.put(R.id.btPlusMinus, Action.PLUSMINUS);
-        action.put(R.id.btEquals, Action.EQUALS);
-
-        View.OnClickListener actionClickListener = new View.OnClickListener() {
+        findViewById(R.id.btDot).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                presenter.onActionPressed(action.get(view.getId()));
-                System.out.println(action.get(view.getId()));
+            public void onClick(View v) {
+                presenter.onDotPressed();
             }
-        };
+        });
+        findViewById(R.id.btDelete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onDeletePressed();
+            }
+        });
+        findViewById(R.id.btClean).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onCleanPressed();
+            }
+        });
+        findViewById(R.id.btPlusMinus).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onPlusMinusPressed();
+            }
+        });
 
-        findViewById(R.id.btDot).setOnClickListener(actionClickListener);
-        findViewById(R.id.btDelete).setOnClickListener(actionClickListener);
-        findViewById(R.id.btClean).setOnClickListener(actionClickListener);
-        findViewById(R.id.btPlusMinus).setOnClickListener(actionClickListener);
-        findViewById(R.id.btEquals).setOnClickListener(actionClickListener);
     }
 
 

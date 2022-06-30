@@ -34,6 +34,9 @@ public class CalculatorImpl implements Calculator {
             case DEGREE:
                 return arg1 * arg1;
 
+            case EQUALS:
+                return arg1;
+
         }
 
         return 0.0;

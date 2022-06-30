@@ -19,13 +19,21 @@ import com.example.javaforandroid2.model.Operator;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class CalculatorPresenter {
 
-    private CalculatorView view;
-    private Calculator calculator;
-    private DecimalFormat formatter = new DecimalFormat("#.#####");
+    private final CalculatorView view;
+    private final Calculator calculator;
+    private final DecimalFormat formatter = new DecimalFormat("#.#######");
+
     private double argOne;
     private Double argTwo;
-    private double result;
+    private double lastCount = 0;
+
     private Operator selectedOperator;
+
+    private int countSymbolAfterDot = 0;
+
+
+    private boolean dotPressed = false;
+
 
     public CalculatorPresenter(CalculatorView view, Calculator calculator) {
         this.view = view;
@@ -36,13 +44,29 @@ public class CalculatorPresenter {
 
         if (argTwo == null) {
 
-            argOne = argOne * 10 + digit;
+            if (dotPressed) {
+
+                countSymbolAfterDot++;
+                argOne = argOne + (digit / Math.pow(10, countSymbolAfterDot));
+
+            } else {
+
+                argOne = argOne * 10 + digit;
+            }
 
             showFormatted(argOne);
 
         } else {
 
-            argTwo = argTwo * 10 + digit;
+            if (dotPressed) {
+
+                countSymbolAfterDot++;
+                argTwo = argTwo + (digit / Math.pow(10, countSymbolAfterDot));
+
+            } else {
+
+                argTwo = argTwo * 10 + digit;
+            }
 
             showFormatted(argTwo);
         }
@@ -54,44 +78,68 @@ public class CalculatorPresenter {
         if (selectedOperator != null) {
 
             argOne = calculator.execute(argOne, argTwo, selectedOperator);
-
             showFormatted(argOne);
+
         }
 
         argTwo = 0.0;
-
         selectedOperator = operator;
+        dotPressed = false;
+        countSymbolAfterDot = 0;
     }
 
-    public void onActionPressed(Action action) {
-
-        switch (action) {
-
-            case EQUALS:
-
-
-            case CLEAN:
-
-                argOne = 0.0;
-                argTwo = 0.0;
-                showFormatted(argOne);
-
-            case PLUSMINUS:
-
-                argOne = -argOne;
-                showFormatted(argOne);
-
-            case DOT:
-
-
-            case DELETE:
-        }
-
-
-    }
 
     private void showFormatted(double value) {
 
         view.showResult(formatter.format(value));
+    }
+
+    public void onDotPressed() {
+
+        dotPressed = true;
+
+    }
+
+    public void onDeletePressed() {
+
+        if (selectedOperator == null) {
+
+            lastCount = argOne % 10;
+            argOne = (argOne - lastCount) / 10;
+            showFormatted(argOne);
+
+        } else {
+
+            lastCount = argTwo % 10;
+            argTwo = (argTwo - lastCount) / 10;
+            showFormatted(argTwo);
+
+        }
+
+    }
+
+    public void onCleanPressed() {
+
+        argOne = 0.0;
+        argTwo = null;
+        selectedOperator = null;
+        showFormatted(0);
+        dotPressed = false;
+        countSymbolAfterDot = 0;
+    }
+
+    public void onPlusMinusPressed() {
+
+        if (selectedOperator == null) {
+
+            argOne = -argOne;
+            showFormatted(argOne);
+
+        } else {
+
+            argTwo = -argTwo;
+            showFormatted(argTwo);
+
+        }
     }
 }

@@ -13,6 +13,7 @@ public enum Operator {
     DIVIDE,
     ROOT,
     DEGREE,
-    PERCENT
+    PERCENT,
+    EQUALS
 
 }
