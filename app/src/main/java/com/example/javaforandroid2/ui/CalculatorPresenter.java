@@ -86,6 +86,7 @@ public class CalculatorPresenter {
         selectedOperator = operator;
         dotPressed = false;
         countSymbolAfterDot = 0;
+
     }
 
 
