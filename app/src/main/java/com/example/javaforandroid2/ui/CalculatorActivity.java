@@ -3,9 +3,12 @@ package com.example.javaforandroid2.ui;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.javaforandroid2.R;
@@ -26,6 +29,13 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences preferences = getSharedPreferences("themes.xml", Context.MODE_PRIVATE);
+
+        int theme = preferences.getInt("theme", R.style.Theme_JavaForAndroid2);
+
+        setTheme(theme);
+
         setContentView(R.layout.activity_main);
 
         tvResult = findViewById(R.id.tvResult);
@@ -117,6 +127,37 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
                 presenter.onPlusMinusPressed();
             }
         });
+
+        Button whiteTheme = findViewById(R.id.btWhiteTheme);
+        Button darkTheme = findViewById(R.id.btDarkTheme);
+
+        if (whiteTheme != null) {
+            whiteTheme.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    preferences.edit()
+                            .putInt("theme", R.style.Theme_JavaForAndroid2)
+                            .commit();
+
+                    recreate();
+                }
+            });
+        }
+
+        if (darkTheme != null) {
+            darkTheme.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    preferences.edit()
+                            .putInt("theme", R.style.Theme_JavaForAndroid2_Dark)
+                            .commit();
+
+                    recreate();
+                }
+            });
+        }
 
     }
 

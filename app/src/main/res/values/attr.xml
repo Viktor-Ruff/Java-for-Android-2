@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="backgroundActivity" format="reference" />
+
+    <attr name="backgroundActivityLand" format="reference" />
+
+    <attr name="calcActionButton" format="reference" />
+
+    <attr name="textViewTextColor" format="reference" />
+</resources>

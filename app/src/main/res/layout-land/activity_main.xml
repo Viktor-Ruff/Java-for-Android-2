@@ -2,32 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="?backgroundActivity"
+    style="?backgroundActivityLand"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.CalculatorActivity">
 
-    <TextView
-        android:id="@+id/edUserInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="end"
-        android:hint="@string/zero"
-        android:maxHeight="50sp"
-        android:paddingEnd="5dp"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <View
-        android:id="@+id/vLine1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="3dp"
-        android:background="#000000" />
 
     <TextView
         android:id="@+id/tvResult"
@@ -36,9 +16,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:gravity="end"
-        android:maxHeight="65dp"
+        android:maxHeight="46dp"
         android:paddingEnd="5dp"
-        android:textSize="50sp"
+        android:textSize="42sp"
         android:textStyle="bold" />
 
     <View
@@ -48,19 +28,18 @@
         android:layout_gravity="center"
         android:layout_marginLeft="3dp"
         android:layout_marginRight="3dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:background="#000000" />
 
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="4"
+        android:columnCount="6"
         android:paddingBottom="10dp"
         android:useDefaultMargins="true">
 
-
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btClean"
             style="?calcActionButton"
             android:layout_width="wrap_content"
@@ -69,7 +48,7 @@
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:text="@string/keyC"
-            app:rippleColor="@color/purple_200" />
+            android:textSize="@dimen/text_size_land" />
 
 
         <Button
@@ -78,7 +57,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:text="@string/keyDelete" />
+            android:text="@string/keyDelete"
+            android:textSize="@dimen/text_size_land" />
 
         <Button
             android:id="@+id/btDegree"
@@ -86,32 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:text="@string/keyDegree" />
-
-        <Button
-            android:id="@+id/btPlusMinus"
-            style="?calcActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/keyPlusMinus" />
-
-        <Button
-            android:id="@+id/btPercent"
-            style="?calcActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/keyPercent" />
-
-        <Button
-            android:id="@+id/btPi"
-            style="?calcActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/keyPi" />
-
+            android:text="@string/keyDegree"
+            android:textSize="@dimen/text_size_land" />
 
         <Button
             android:id="@+id/btRoot"
@@ -119,7 +75,59 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:text="@string/keyRoot" />
+            android:text="@string/keyRoot"
+            android:textSize="@dimen/text_size_land" />
+
+        <Button
+            android:id="@+id/btPercent"
+            style="?calcActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/keyPercent"
+            android:textSize="@dimen/text_size_land" />
+
+        <Button
+            android:id="@+id/btPi"
+            style="?calcActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/keyPi"
+            android:textSize="@dimen/text_size_land" />
+
+
+        <Button
+            android:id="@+id/btKey1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/key1"
+            android:textSize="@dimen/text_size_land" />
+
+        <Button
+            android:id="@+id/btKey2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/key2"
+            android:textSize="@dimen/text_size_land" />
+
+        <Button
+            android:id="@+id/btKey3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/key3"
+            android:textSize="@dimen/text_size_land" />
+
+        <Button
+            android:id="@+id/btKey4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/key4"
+            android:textSize="@dimen/text_size_land" />
 
         <Button
             android:id="@+id/btDivide"
@@ -127,58 +135,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:text="@string/keyDivide" />
-
-        <Button
-            android:id="@+id/btKey1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/key1" />
-
-        <Button
-            android:id="@+id/btKey2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/key2" />
-
-        <Button
-            android:id="@+id/btKey3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/key3" />
-
-        <Button
-            android:id="@+id/btMultiply"
-            style="?calcActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/keyMultiply" />
-
-        <Button
-            android:id="@+id/btKey4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/key4" />
-
-        <Button
-            android:id="@+id/btKey5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/key5" />
-
-        <Button
-            android:id="@+id/btKey6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/key6" />
-
+            android:text="@string/keyDivide"
+            android:textSize="@dimen/text_size_land" />
 
         <Button
             android:id="@+id/btMinus"
@@ -186,28 +144,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:text="@string/keyMinus" />
+            android:text="@string/keyMinus"
+            android:textSize="@dimen/text_size_land" />
+
+        <Button
+            android:id="@+id/btKey5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/key5"
+            android:textSize="@dimen/text_size_land" />
+
+        <Button
+            android:id="@+id/btKey6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/key6"
+            android:textSize="@dimen/text_size_land" />
 
         <Button
             android:id="@+id/btKey7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:text="@string/key7" />
+            android:text="@string/key7"
+            android:textSize="@dimen/text_size_land" />
+
 
         <Button
             android:id="@+id/btKey8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:text="@string/key8" />
+            android:text="@string/key8"
+            android:textSize="@dimen/text_size_land" />
 
         <Button
-            android:id="@+id/btKey9"
+            android:id="@+id/btMultiply"
+            style="?calcActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:text="@string/key9" />
+            android:text="@string/keyMultiply"
+            android:textSize="@dimen/text_size_land" />
 
         <Button
             android:id="@+id/btPlus"
@@ -215,21 +195,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:text="@string/keyPlus" />
+            android:text="@string/keyPlus"
+            android:textSize="@dimen/text_size_land" />
+
+        <Button
+            android:id="@+id/btKey9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/key9"
+            android:textSize="@dimen/text_size_land" />
 
         <Button
             android:id="@+id/btKey0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:text="@string/key0" />
+            android:text="@string/key0"
+            android:textSize="@dimen/text_size_land" />
 
         <Button
             android:id="@+id/btDot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:text="@string/keyDot" />
+            android:text="@string/keyDot"
+            android:textSize="@dimen/text_size_land" />
+
+        <Button
+            android:id="@+id/btPlusMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="@string/keyPlusMinus"
+            android:textSize="@dimen/text_size_land" />
 
         <Button
             android:id="@+id/btEquals"
@@ -238,7 +237,8 @@
             android:layout_height="wrap_content"
             android:layout_columnSpan="2"
             android:layout_gravity="fill_horizontal"
-            android:text="@string/keyEquals" />
+            android:text="@string/keyEquals"
+            android:textSize="@dimen/text_size_land" />
 
     </GridLayout>
 
@@ -255,8 +255,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:minHeight="60dp">
-
+        android:gravity="right">
 
         <Button
             android:id="@+id/btDarkTheme"
