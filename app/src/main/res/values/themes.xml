@@ -12,5 +12,23 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="materialButtonStyle">@style/CalcButton</item>
+        <item name="calcActionButton">@style/CalcButton.ActionCalcButton</item>
+        <item name="textViewTextColor">@style/TextViewTextColor</item>
+        <item name="backgroundActivity">@style/backgroundActivity</item>
+        <item name="backgroundActivityLand">@style/backgroundActivityLand</item>
+
+
     </style>
+
+
+    <style name="Theme.JavaForAndroid2.Dark">
+        <item name="backgroundActivity">@style/backgroundActivityDark</item>
+        <item name="backgroundActivityLand">@style/backgroundActivityLandDark</item>
+        <item name="materialButtonStyle">@style/CalcButton.Dark</item>
+        <item name="calcActionButton">@style/CalcButton.ActionCalcButtonDark</item>
+        <item name="textViewTextColor">@style/TextViewTextColorDark</item>
+
+    </style>
+
 </resources>
