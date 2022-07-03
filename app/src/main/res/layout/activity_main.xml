@@ -252,17 +252,16 @@
         android:background="#000000" />
 
     <LinearLayout
-        android:gravity="right"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:minHeight="100dp">
+        android:minHeight="60dp">
 
 
         <Button
             android:id="@+id/btDarkTheme"
-            android:layout_width="63dp"
-            android:layout_height="55dp"
+            android:layout_width="43dp"
+            android:layout_height="38dp"
             android:layout_marginLeft="5dp"
             android:background="@drawable/icon_dark"
             android:backgroundTintMode="src_atop"
@@ -272,8 +271,8 @@
 
         <Button
             android:id="@+id/btWhiteTheme"
-            android:layout_width="69dp"
-            android:layout_height="56dp"
+            android:layout_width="42dp"
+            android:layout_height="39dp"
             android:layout_marginLeft="5dp"
             android:background="@drawable/icon_white"
             android:backgroundTintMode="src_atop"
