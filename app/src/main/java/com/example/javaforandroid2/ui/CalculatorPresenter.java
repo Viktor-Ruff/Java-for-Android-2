@@ -23,6 +23,7 @@ public class CalculatorPresenter {
     private final Calculator calculator;
     private final DecimalFormat formatter = new DecimalFormat("#.#######");
 
+
     private double argOne;
     private Double argTwo;
     private double lastCount = 0;
@@ -31,9 +32,7 @@ public class CalculatorPresenter {
 
     private int countSymbolAfterDot = 0;
 
-
     private boolean dotPressed = false;
-
 
     public CalculatorPresenter(CalculatorView view, Calculator calculator) {
         this.view = view;
@@ -84,6 +83,7 @@ public class CalculatorPresenter {
 
         argTwo = 0.0;
         selectedOperator = operator;
+
         dotPressed = false;
         countSymbolAfterDot = 0;
     }
@@ -102,7 +102,7 @@ public class CalculatorPresenter {
 
     public void onDeletePressed() {
 
-        if (selectedOperator == null) {
+        if (selectedOperator == null || selectedOperator == Operator.EQUALS) {
 
             lastCount = argOne % 10;
             argOne = (argOne - lastCount) / 10;
@@ -130,7 +130,7 @@ public class CalculatorPresenter {
 
     public void onPlusMinusPressed() {
 
-        if (selectedOperator == null) {
+        if (selectedOperator == null || selectedOperator == Operator.EQUALS) {
 
             argOne = -argOne;
             showFormatted(argOne);
@@ -141,5 +141,13 @@ public class CalculatorPresenter {
             showFormatted(argTwo);
 
         }
+    }
+
+    public double getArgOne() {
+        return argOne;
+    }
+
+    public void setArgOne(double argOne) {
+        this.argOne = argOne;
     }
 }

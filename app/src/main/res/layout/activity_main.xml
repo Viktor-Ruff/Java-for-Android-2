@@ -36,9 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:gravity="end"
-        android:maxHeight="65dp"
+        android:maxHeight="70dp"
         android:paddingEnd="5dp"
-        android:textSize="50sp"
+        android:textSize="60sp"
         android:textStyle="bold" />
 
     <View
@@ -255,8 +255,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:gravity="right"
         android:minHeight="60dp">
 
+        <Button
+            android:id="@+id/btSettings"
+            android:layout_width="42dp"
+            android:layout_height="39dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/icon_settings"
+            android:backgroundTintMode="src_atop"
+            android:minWidth="105dp"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btDarkTheme"
@@ -280,6 +294,7 @@
             android:padding="10dp"
             android:textSize="20dp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
 </LinearLayout>
