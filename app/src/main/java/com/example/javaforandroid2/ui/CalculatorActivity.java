@@ -1,46 +1,68 @@
 package com.example.javaforandroid2.ui;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.example.javaforandroid2.R;
-import com.example.javaforandroid2.model.Action;
-import com.example.javaforandroid2.model.Calculator;
 import com.example.javaforandroid2.model.CalculatorImpl;
 import com.example.javaforandroid2.model.Operator;
+import com.example.javaforandroid2.model.Theme;
+import com.example.javaforandroid2.model.ThemeRepository;
+import com.example.javaforandroid2.model.ThemeRepositoryImpl;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class CalculatorActivity extends AppCompatActivity implements CalculatorView {
 
+    private static final String KEY_ARG1 = "keyARG1";
     private TextView tvResult;
     private CalculatorPresenter presenter;
+    private ThemeRepository themeRepository;
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SharedPreferences preferences = getSharedPreferences("themes.xml", Context.MODE_PRIVATE);
+        /*if (savedInstanceState != null) {
+            presenter.setArgOne(savedInstanceState.getDouble(KEY_ARG1));
+        }*/
 
-        int theme = preferences.getInt("theme", R.style.Theme_JavaForAndroid2);
+        themeRepository = ThemeRepositoryImpl.getInstance(this);
 
-        setTheme(theme);
+        setTheme(themeRepository.getSavedTheme().getThemeRes());
 
         setContentView(R.layout.activity_main);
 
         tvResult = findViewById(R.id.tvResult);
 
+        if (getIntent().hasExtra("message")) {
+            tvResult.setText(getIntent().getStringExtra("message"));
+        }
+
         presenter = new CalculatorPresenter(this, new CalculatorImpl());
+
+
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+        }
+
 
         Map<Integer, Double> digits = new HashMap<>();
         digits.put(R.id.btKey1, 1.0);
@@ -128,39 +150,67 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
             }
         });
 
-        Button whiteTheme = findViewById(R.id.btWhiteTheme);
-        Button darkTheme = findViewById(R.id.btDarkTheme);
 
-        if (whiteTheme != null) {
-            whiteTheme.setOnClickListener(new View.OnClickListener() {
+        Button btWhiteTheme = findViewById(R.id.btWhiteTheme);
+        Button btDarkTheme = findViewById(R.id.btDarkTheme);
+
+
+        if (btWhiteTheme != null) {
+            btWhiteTheme.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    preferences.edit()
-                            .putInt("theme", R.style.Theme_JavaForAndroid2)
-                            .commit();
+                    themeRepository.saveTheme(Theme.WHITE);
 
                     recreate();
                 }
             });
         }
 
-        if (darkTheme != null) {
-            darkTheme.setOnClickListener(new View.OnClickListener() {
+        if (btDarkTheme != null) {
+            btDarkTheme.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    preferences.edit()
-                            .putInt("theme", R.style.Theme_JavaForAndroid2_Dark)
-                            .commit();
+                    themeRepository.saveTheme(Theme.DARK);
 
                     recreate();
                 }
             });
         }
+
+        ActivityResultLauncher<Intent> themeLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                Intent intent = result.getData();
+
+                Theme selectedTheme = (Theme) intent.getSerializableExtra(SettingsActivity.EXTRA_THEME);
+
+                themeRepository.saveTheme(selectedTheme);
+
+                recreate();
+            }
+
+        });
+
+        findViewById(R.id.btSettings).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CalculatorActivity.this, SettingsActivity.class);
+                intent.putExtra(SettingsActivity.EXTRA_THEME, themeRepository.getSavedTheme());
+
+                themeLauncher.launch(intent);
+            }
+        });
 
     }
 
+    /*@RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+
+        outState.putDouble(KEY_ARG1, presenter.getArgOne());
+        super.onSaveInstanceState(outState);
+    }*/
 
     @Override
     public void showResult(String result) {

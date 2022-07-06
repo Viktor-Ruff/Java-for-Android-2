@@ -24,6 +24,8 @@
     <string name="keyC">𝗖</string>
     <string name="keyEquals">=</string>
     <string name="zero">0</string>
-    <string name="dark_theme">dark</string>
-    <string name="white_theme">white</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="white_theme">White theme</string>
+    <string name="settings">Settings</string>
+    <string name="how_to">How To</string>
 </resources>
